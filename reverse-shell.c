@@ -14,10 +14,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
+/* ================================================== */
+/* |      CHANGE THIS TO YOUR IP AND YOUR PORT      | */
+/* ================================================== */
 # define CLIENT_IP "0.0.0.0"
 # define CLIENT_PORT (int)0
-#endif
+/* ================================================== */
 
 int main(void) {
 #if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
