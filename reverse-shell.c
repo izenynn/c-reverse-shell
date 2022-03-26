@@ -17,8 +17,8 @@
 /* ================================================== */
 /* |      CHANGE THIS TO YOUR IP AND YOUR PORT      | */
 /* ================================================== */
-# define CLIENT_IP "0.0.0.0"
-# define CLIENT_PORT (int)0
+#define CLIENT_IP "0.0.0.0"
+#define CLIENT_PORT (int)0
 /* ================================================== */
 
 int main(void) {
