@@ -28,8 +28,13 @@ int main(void) {
 #endif
 
 #ifndef WIN32
-	if (fork() != 0) {
-		exit(0);
+	pid_t pid = fork();
+	if (pid == -1) {
+		write(2, "[ERROR] fork failed.\n", 21);
+		return (1);
+	}
+	if (pid > 0) {
+		return (0);
 	}
 #else
 	WSADATA wsaData;
