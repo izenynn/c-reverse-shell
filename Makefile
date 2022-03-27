@@ -37,8 +37,15 @@ linux: $(NAME_LIN)
 PHONY += windows
 windows: $(NAME_WIN)
 
+ifeq ($(WAIT_FOR_CLIENT),TRUE)
+$(NAME_LIN): LDFLAGS_LIN += -D WAIT_FOR_CLIENT
+endif
 $(NAME_LIN): $(SRC)
 	$(CC_LIN) $(CFLAGS_LIN) -o $@ $^ $(LDFLAGS_LIN)
+
+ifeq ($(WAIT_FOR_CLIENT),TRUE)
+$(NAME_WIN): LDFLAGS_WIN += -D WAIT_FOR_CLIENT
+endif
 $(NAME_WIN): $(SRC)
 	$(CC_WIN) $(CFLAGS_WIN) -o $@ $^ $(LDFLAGS_WIN)
 

