@@ -15,7 +15,7 @@ CC_WIN = i686-w64-mingw32-gcc-win32
 LDFLAGS_LIN = -D LINUX
 LDFLAGS_WIN = -D WIN32 -lws2_32
 
-CFLAGS_LIN = -Wall -Wextra -Werror
+CFLAGS_LIN = -std=c99 -Wall -Wextra -Werror
 CFLAGS_WIN = $(CFLAGS_LIN)
 
 ##################################################
