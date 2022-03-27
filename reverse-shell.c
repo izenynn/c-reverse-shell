@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 /* ================================================== */
-/* |      CHANGE THIS TO YOUR IP AND YOUR PORT      | */
+/* |     CHANGE THIS TO THE CLIENT IP AND PORT      | */
 /* ================================================== */
 #define CLIENT_IP "0.0.0.0"
 #define CLIENT_PORT (int)0
