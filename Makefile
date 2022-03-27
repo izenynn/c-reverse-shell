@@ -23,7 +23,8 @@ CFLAGS_WIN = $(CFLAGS_LIN)
 #                    SOURCES                     #
 ##################################################
 
-SRC = reverse-shell.c
+SRC_LIN = linux.c
+SRC_WIN = windows.c
 
 ##################################################
 #                     RULES                      #
@@ -41,13 +42,13 @@ windows: $(NAME_WIN)
 ifeq ($(WAIT_FOR_CLIENT),TRUE)
 $(NAME_LIN): LDFLAGS_LIN += -D WAIT_FOR_CLIENT
 endif
-$(NAME_LIN): $(SRC)
+$(NAME_LIN): $(SRC_LIN)
 	$(CC_LIN) $(CFLAGS_LIN) -o $@ $^ $(LDFLAGS_LIN)
 
 ifeq ($(WAIT_FOR_CLIENT),TRUE)
 $(NAME_WIN): LDFLAGS_WIN += -D WAIT_FOR_CLIENT
 endif
-$(NAME_WIN): $(SRC)
+$(NAME_WIN): $(SRC_WIN)
 	$(CC_WIN) $(CFLAGS_WIN) -o $@ $^ $(LDFLAGS_WIN)
 
 PHONY += clean
