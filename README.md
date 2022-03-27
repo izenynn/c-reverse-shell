@@ -9,6 +9,7 @@ Features:
 - Just one `.c` file.
 - Runs in the background (on both, Linux and Windows).
 - You can choose between waiting for the client (if it's no listening) or not.
+- Compile with only one command (see at the bottom of the `README.md`), there is also a `Makefile`.
 
 ## Dependencies
 
