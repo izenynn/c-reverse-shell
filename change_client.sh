@@ -6,7 +6,7 @@ function invalid_args() {
 }
 
 function set_ip_and_port() {
-	sed -i "s|.*# define CLIENT_IP \".*\".*|# define CLIENT_IP \"$1\"|g" $3
+	sed -i "s|.*# define CLIENT_IP (char\*)\".*\".*|# define CLIENT_IP (char\*)\"$1\"|g" $3
 	sed -i "s|.*# define CLIENT_PORT (int).*|# define CLIENT_PORT (int)$2|g" $3
 }
 

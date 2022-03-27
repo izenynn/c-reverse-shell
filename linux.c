@@ -11,7 +11,7 @@
 /* |     CHANGE THIS TO THE CLIENT IP AND PORT      | */
 /* ================================================== */
 #if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
-# define CLIENT_IP "0.0.0.0"
+# define CLIENT_IP (char*)"0.0.0.0"
 # define CLIENT_PORT (int)0
 #endif
 /* ================================================== */
