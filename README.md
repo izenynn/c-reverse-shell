@@ -59,17 +59,17 @@ Other `Makefile` rules:
 In case you don't have the `Makefile`, just copy the `reverse-shell.c` file and compile it with the following command:
 - Linux
 ```sh
-gcc -std=c99 -o rsh.out linux.c -D LINUX
+gcc -std=c99 linux.c -o rsh.out
 ```
 ```sh
-gcc -std=c99 -o rsh.out linux.c -D LINUX -D WAIT_FOR_CLIENT
+gcc -std=c99 linux.c -o rsh.out -D WAIT_FOR_CLIENT
 ```
 - Windows:
 ```sh
-i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe windows.c -D WIN32 -lws2_32
+i686-w64-mingw32-gcc-win32 -std=c99 windows.c -o rsh.exe -lws2_32
 ```
 ```sh
-i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe windows.c -D WIN32 -lws2_32 -D WAIT_FOR_CLIENT
+i686-w64-mingw32-gcc-win32 -std=c99 windows.c -o rsh.exe -lws2_32 -D WAIT_FOR_CLIENT
 ```
 
 ##
