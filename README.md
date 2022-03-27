@@ -25,20 +25,10 @@ sudo apt install gcc-mingw-w64
 git clone https://github.com/izenynn/c-reverse-shell.git
 ```
 
-2. Change the `CLIENT_IP` and `CLIENT_PORT` in the file `reverse-shell.c` (lines 21 and 22):
-```diff
- /* ================================================== */
- /* |      CHANGE THIS TO YOUR IP AND YOUR PORT      | */
- /* ================================================== */
- #if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
--# define CLIENT_IP "0.0.0.0"
--# define CLIENT_PORT (int)0
-+# define CLIENT_IP "XXX.XXX.XXX.XXX"
-+# define CLIENT_PORT (int)XXXX
- #endif
- /* ================================================== */
+2. Change client IP and client PORT with `change_client.sh` (you can change it manually inside `linux.c` and `windows.c` if you prefer):
+```sh
+./change_client.sh [CLIENT_IP] [CLIENT_PORT]
 ```
-
 
 3. Compile for Linux and Windows with `make` (equivalent to `make all`):
 ```sh
@@ -69,17 +59,17 @@ Other `Makefile` rules:
 In case you don't have the `Makefile`, just copy the `reverse-shell.c` file and compile it with the following command:
 - Linux
 ```sh
-gcc -std=c99 -o rsh.out reverse-shell.c -D LINUX
+gcc -std=c99 -o rsh.out linux.c -D LINUX
 ```
 ```sh
-gcc -std=c99 -o rsh.out reverse-shell.c -D LINUX -D WAIT_FOR_CLIENT
+gcc -std=c99 -o rsh.out linux.c -D LINUX -D WAIT_FOR_CLIENT
 ```
 - Windows:
 ```sh
-i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe reverse-shell.c -D WIN32 -lws2_32
+i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe windows.c -D WIN32 -lws2_32
 ```
 ```sh
-i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe reverse-shell.c -D WIN32 -lws2_32 -D WAIT_FOR_CLIENT
+i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe windows.c -D WIN32 -lws2_32 -D WAIT_FOR_CLIENT
 ```
 
 ##
