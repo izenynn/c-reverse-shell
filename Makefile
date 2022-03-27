@@ -38,9 +38,9 @@ PHONY += windows
 windows: $(NAME_WIN)
 
 $(NAME_LIN): $(SRC)
-	$(CC_LIN) $(CFLAGS_LIN) -c $^ -o $@ $(LDFLAGS_LIN)
+	$(CC_LIN) $(CFLAGS_LIN) -o $@ $^ $(LDFLAGS_LIN)
 $(NAME_WIN): $(SRC)
-	$(CC_WIN) $(CFLAGS_WIN) -c $^ -o $@ $(LDFLAGS_WIN)
+	$(CC_WIN) $(CFLAGS_WIN) -o $@ $^ $(LDFLAGS_WIN)
 
 PHONY += clean
 clean:
