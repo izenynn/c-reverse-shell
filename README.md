@@ -49,13 +49,13 @@ Other `Makefile` rules:
 - `make linux`
 - `make windows`
 - `make re`
-
+-
 - `make all WAIT_FOR_CLIENT=TRUE`
 - `make linux WAIT_FOR_CLIENT=TRUE`
 - `make windows WAIT_FOR_CLIENT=TRUE`
 - `make re WAIT_FOR_CLIENT=TRUE`
-
-- - `make clean`
+-
+- `make clean`
 
 ##
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
