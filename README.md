@@ -36,6 +36,8 @@ git clone https://github.com/izenynn/c-reverse-shell.git
 make
 ```
 
+4. And ✨ magic ✨ compile the program in your target, or just send the binary, and execute it, make sure your client is listening 😊.
+
 Additionally you can compile with `WAIT_FOR_CLIENT` true, this will make the program loop until the connection to the client is established, instead of returning an error in the connection:
 ```sh
 make WAIT_FOR_CLIENT=TRUE
