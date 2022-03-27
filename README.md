@@ -39,10 +39,10 @@ make
 4. And ✨ magic ✨ compile the program in your target, or just send the binary, and execute it, make sure your client is listening 😊.
 
 Additionally you can compile with `WAIT_FOR_CLIENT` true, this will make the program loop until the connection to the client is established, instead of returning an error in the connection:
-*NOTE: this doen't work on windows, not sure why, but I'm sleepy, so maybe I fix it another day (or pull request if you fix it please 😊).*
 ```sh
 make WAIT_FOR_CLIENT=TRUE
 ```
+*NOTE: this doen't work on windows, not sure why, but I'm sleepy, so maybe I fix it another day (or pull request if you fix it please 😊).*
 
 Other Make rules:
 - `make all`
