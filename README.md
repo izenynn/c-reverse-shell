@@ -4,6 +4,12 @@
 
 A reverse shell for Windows and Linux written in C.
 
+Features:
+- Works on Linux and Windows.
+- Just one `.c` file.
+- Runs in the background (on both, Linux and Windows).
+- You can choose between waiting for the client (if it's no listening) or not.
+
 ## Dependencies
 
 For Windows you will need `mingw-w64` compiler (the `.exe` binary is compiled in linux):
@@ -56,6 +62,16 @@ Other `Makefile` rules:
 - `make re WAIT_FOR_CLIENT=TRUE`
 -
 - `make clean`
+
+In case you don't have the `Makefile`, just copy the `reverse-shell.c` file and compile it with the following command:
+- Linux
+```sh
+gcc -std=c99 -Wall -Wextra -Werror -o rsh.out reverse-shell.c -D LINUX
+```
+- Windows:
+```sh
+i686-w64-mingw32-gcc-win32 -std=c99 -Wall -Wextra -Werror -o rsh.exe reverse-shell.c -D WIN32 -lws2_32
+```
 
 ##
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
