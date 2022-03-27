@@ -25,15 +25,17 @@ sudo apt install gcc-mingw-w64
 git clone https://github.com/izenynn/c-reverse-shell.git
 ```
 
-2. Change the `CLIENT_IP` and `CLIENT_PORT` in the file `reverse-shell.c` (lines 20 and 21):
+2. Change the `CLIENT_IP` and `CLIENT_PORT` in the file `reverse-shell.c` (lines 21 and 22):
 ```diff
  /* ================================================== */
  /* |      CHANGE THIS TO YOUR IP AND YOUR PORT      | */
  /* ================================================== */
--#define CLIENT_IP "0.0.0.0"
--#define CLIENT_PORT (int)0
-+#define CLIENT_IP "XXX.XXX.XXX.XXX"
-+#define CLIENT_PORT (int)XXXX
+ #if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
+-# define CLIENT_IP "0.0.0.0"
+-# define CLIENT_PORT (int)0
++# define CLIENT_IP "XXX.XXX.XXX.XXX"
++# define CLIENT_PORT (int)XXXX
+ #endif
  /* ================================================== */
 ```
 

