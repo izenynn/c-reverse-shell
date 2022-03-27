@@ -27,7 +27,11 @@ int main(void) {
 	return (1);
 #endif
 
-#ifdef WIN32
+#ifndef WIN32
+	if (fork() != 0) {
+		exit(0);
+	}
+#else
 	WSADATA wsaData;
 	if (WSAStartup(MAKEWORD(2 ,2), &wsaData) != 0) {
 		write(2, "[ERROR] WSASturtup failed.\n", 28);
