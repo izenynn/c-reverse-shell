@@ -67,17 +67,17 @@ Other `Makefile` rules:
 In case you don't have the `Makefile`, just copy the `reverse-shell.c` file and compile it with the following command:
 - Linux
 ```sh
-gcc -std=c99 -Wall -Wextra -Werror -o rsh.out reverse-shell.c -D LINUX
+gcc -std=c99 -o rsh.out reverse-shell.c -D LINUX
 ```
 ```sh
-gcc -std=c99 -Wall -Wextra -Werror -o rsh.out reverse-shell.c -D LINUX -D WAIT_FOR_CLIENT
+gcc -std=c99 -o rsh.out reverse-shell.c -D LINUX -D WAIT_FOR_CLIENT
 ```
 - Windows:
 ```sh
-i686-w64-mingw32-gcc-win32 -std=c99 -Wall -Wextra -Werror -o rsh.exe reverse-shell.c -D WIN32 -lws2_32
+i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe reverse-shell.c -D WIN32 -lws2_32
 ```
 ```sh
-i686-w64-mingw32-gcc-win32 -std=c99 -Wall -Wextra -Werror -o rsh.exe reverse-shell.c -D WIN32 -lws2_32 -D WAIT_FOR_CLIENT
+i686-w64-mingw32-gcc-win32 -std=c99 -o rsh.exe reverse-shell.c -D WIN32 -lws2_32 -D WAIT_FOR_CLIENT
 ```
 
 ##
