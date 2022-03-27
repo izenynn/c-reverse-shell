@@ -6,7 +6,7 @@ A reverse shell for Windows and Linux written in C.
 
 ## Dependencies
 
-For Windows you will need `mingw-w64` compiler (the `.exe` file is compiled in linux):
+For Windows you will need `mingw-w64` compiler (the `.exe` binary is compiled in linux):
 ```sh
 sudo apt install gcc-mingw-w64
 ```
