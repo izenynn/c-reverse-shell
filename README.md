@@ -44,7 +44,7 @@ make WAIT_FOR_CLIENT=TRUE
 ```
 *NOTE: this doen't work on windows, not sure why, but I'm sleepy, so maybe I fix it another day (or pull request if you fix it please 😊).*
 
-Other Make rules:
+Other `Makefile` rules:
 - `make all`
 - `make linux`
 - `make windows`
