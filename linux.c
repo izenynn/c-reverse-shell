@@ -31,12 +31,11 @@ int main(void) {
 		return (0);
 	}
 
-	int port = CLIENT_PORT;
 	struct sockaddr_in sa;
-	int sockt = socket(AF_INET, SOCK_STREAM, 0);
 	sa.sin_family = AF_INET;
-	sa.sin_port = htons(port);
+	sa.sin_port = htons(CLIENT_PORT);
 	sa.sin_addr.s_addr = inet_addr(CLIENT_IP);
+	int sockt = socket(AF_INET, SOCK_STREAM, 0);
 
 #ifdef WAIT_FOR_CLIENT
 	while (connect(sockt, (struct sockaddr *) &sa, sizeof(sa)) != 0) {
