@@ -2,8 +2,8 @@
 #                    PROGRAM                     #
 ##################################################
 
-NAME_LIN = rsh.out
-NAME_WIN = rsh.exe
+NAME_LIN = reverse.elf
+NAME_WIN = reverse.exe
 
 ##################################################
 #                    COMPILER                    #
